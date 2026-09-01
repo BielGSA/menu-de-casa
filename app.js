@@ -6,7 +6,7 @@ function readRecipes(raw){if(Array.isArray(raw))return raw;if(Array.isArray(raw.
 function getField(r,...names){for(const n of names){if(r?.[n]!=null&&r[n]!=='')return r[n]}return ''}
 function recipeName(r){return getField(r,'nome','name','receita')||getField(r,'id','codigo')}
 function recipeId(r){return getField(r,'codigo','id','recipe_id','receita_id')}
-function recipeImage(r){return window.RECIPE_IMAGES?.[String(recipeId(r))]||''}
+function recipeImage(r){const id=String(recipeId(r));return window.RECIPE_IMAGES?.[id]||(id>='RC0006'&&id<='RC0010'?`images/recipes/${id}.webp`:'')}
 function category(r){return getField(r,'categoria','category')||'Outras'}
 function time(r){const v=getField(r,'tempo','tempo_total','tempo_minutos','time_minutes','time');return typeof v==='number'?`${v} min`:v}
 function servings(r){return getField(r,'rendimento','porcoes','porções','servings')}
