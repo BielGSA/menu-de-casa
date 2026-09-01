@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#184f3b" />
+  <title>Menu de Casa</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="splash" class="splash" aria-hidden="false">
+    <div class="brand-mark">TK27 Labs</div>
+    <div class="splash-card">
+      <div class="logo-placeholder"><span>🏠🍲</span><strong>Menu de Casa</strong><small>O QUE TEM EM CASA VIRA RECEITA</small></div>
+    </div>
+  </div>
+
+  <div id="app" class="app is-hidden">
+    <header class="topbar">
+      <button id="backBtn" class="icon-btn is-hidden" aria-label="Voltar">←</button>
+      <div>
+        <strong id="pageTitle">Menu de Casa</strong>
+        <span id="pageSubtitle">O que tem em casa vira receita</span>
+      </div>
+    </header>
+
+    <main id="view" class="view" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button data-route="home" class="nav-btn active"><span>⌂</span>Início</button>
+      <button data-route="recipes" class="nav-btn"><span>▤</span>Receitas</button>
+      <button data-route="categories" class="nav-btn"><span>▦</span>Categorias</button>
+      <button data-route="search" class="nav-btn"><span>⌕</span>Buscar</button>
+    </nav>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
