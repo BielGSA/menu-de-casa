@@ -6,7 +6,7 @@ function readRecipes(raw){if(Array.isArray(raw))return raw;if(Array.isArray(raw.
 function getField(r,...names){for(const n of names){if(r?.[n]!=null&&r[n]!=='')return r[n]}return ''}
 function recipeName(r){return getField(r,'nome','name','receita')||getField(r,'id','codigo')}
 function recipeId(r){return getField(r,'codigo','id','recipe_id','receita_id')}
-function recipeImage(r){const id=String(recipeId(r));return (id>='RC0001'&&id<='RC0020'?`images/recipes/${id}.webp`:window.RECIPE_IMAGES?.[id]||'')}
+function recipeImage(r){const id=String(recipeId(r));const jpg={RC0021:'RC0021-baiao-de-dois.jpg',RC0022:'RC0022-moqueca-de-peixe.jpg',RC0023:'RC0023-pao-de-queijo.jpg',RC0024:'RC0024-coxinha-de-frango.jpg',RC0025:'RC0025-empadao-de-frango.jpg',RC0026:'RC0026-pastel-de-carne.jpg',RC0027:'RC0027-quibe-assado.jpg',RC0028:'RC0028-arroz-branco-soltinho.jpg',RC0029:'RC0029-feijao-carioca-temperado.jpg',RC0030:'RC0030-pure-de-batata.jpg'};return id>='RC0001'&&id<='RC0020'?`images/recipes/${id}.webp`:jpg[id]?`images/recipes/${jpg[id]}`:window.RECIPE_IMAGES?.[id]||''}
 function category(r){return getField(r,'categoria','category')||'Outras'}
 function time(r){const v=getField(r,'tempo','tempo_total','tempo_minutos','time_minutes','time');return typeof v==='number'?`${v} min`:v}
 function servings(r){return getField(r,'rendimento','porcoes','porções','servings')}
